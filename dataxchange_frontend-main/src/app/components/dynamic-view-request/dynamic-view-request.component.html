@@ -1,0 +1,20 @@
+<div class="dynamic-view-container w-100">
+    <mat-accordion [multi]="true">
+        <ng-container *ngFor="let view of viewData; let i = index">
+            <mat-expansion-panel hideToggle [expanded]="isExpanded" class="mb-3 border no-shadow">
+                <mat-expansion-panel-header class="bg-light">
+                    <mat-panel-title>
+                        <h4 class="fw-normal m-0">{{view.section}}</h4>
+                        
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ng-container *ngFor="let _params of view.data">
+                    <div class="col-custom my-4">
+                        <div class="text-dark fw-bold">{{_params.label}}</div>
+                        <div class="value pt-1">{{_params.value}}</div>
+                    </div>
+                </ng-container>
+            </mat-expansion-panel>
+        </ng-container>
+    </mat-accordion>
+</div>

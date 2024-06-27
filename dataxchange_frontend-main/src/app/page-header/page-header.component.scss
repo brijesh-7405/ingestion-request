@@ -1,0 +1,31 @@
+@import '../../styles/color.scss';
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  padding: 0 20px;
+  height: 65px;
+  border-bottom: 1px solid $cutom-border-colour;
+  background-color: $cutom-white;
+
+  .header-start {
+    flex: none;
+    padding: 12px 0;
+  }
+
+  .header-end {
+    margin-left: auto;
+  }
+}
+
+.actions-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background-color: rgba(#000, .05);
+  pointer-events: none;
+}

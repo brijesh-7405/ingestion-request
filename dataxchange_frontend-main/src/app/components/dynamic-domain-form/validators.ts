@@ -1,0 +1,53 @@
+import { Validators, ValidatorFn } from "@angular/forms";
+
+export const formsValidators: Array<{ [field: string]: ValidatorFn[] }> = [
+  {
+    requesterName: [Validators.required],
+    datasetName: [Validators.required],
+    datasetSmeName: [Validators.required],
+    requestRationaleReason: [Validators.required],
+    datasetOriginSource: [Validators.required],
+    currentDataLocationRef: [],
+    dataLocationPath: [],
+    meteometeorSpaceDominoUsageFlagr_space_domino_usage_flag: [Validators.required],
+    ihdFlag: [Validators.required],
+    datasetRequiredForRef: [Validators.required],
+  },
+  {
+    estimatedDataVolumeRef: [],
+    dataRefreshFrequency: [Validators.required],
+    analysisInitDt: [Validators.required],
+    analysisEndDt: [Validators.required],
+    dtaContractCompleteFlag: [Validators.required],
+    dtaExpectedCompletionDate: [Validators.required],
+  },
+  {
+    dataCategoryRefs: [],
+    datasetTypeRef: [Validators.required],
+    studyIds: [],
+    datasetOwnerName: [Validators.required],
+    datasetStewardName: [],
+    contractPartner: [Validators.required],
+    retentionRules: [Validators.required],
+    usageRestrictions: [Validators.required],
+    userRestrictions: [Validators.required],
+    information_classification_type_ref: [Validators.required],
+    piiTypeRef: [Validators.required],
+    therapyAreas: [],
+    techniqueAndAssays: [],
+    indications: [],
+  },
+  {
+    targetIngestionStartDate: [],
+    targetIngestionEndDate: [],
+    targetPath: [],
+    datasetTypeIngestionRef: [],
+    guestUsersEmail: [],
+    whitelistIpAddresses: [],
+    externalStagingContainerName: [],
+    externalDataSourceLocation: [],
+    gskAccessSourceLocationRef: [],
+    externalSourceSecretKeyName: [],
+    domainRequestId: [],
+  }
+]

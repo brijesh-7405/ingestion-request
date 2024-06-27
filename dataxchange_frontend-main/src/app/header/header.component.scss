@@ -1,0 +1,51 @@
+@import '../../styles/color.scss';
+
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.header-container {
+    height: 55px;
+
+    .float-right {
+        margin-left: auto;
+
+        mat-icon.button-icon {
+            font-size: 2rem;
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0;
+        }
+    }
+}
+
+.quicklinks {
+    margin-right: 2rem;
+}
+
+.text-marketPlace{
+    vertical-align: text-top;
+    color: $cutom-white;
+}
+.cs-mr-4{
+    margin-right: 4rem;
+}
+.header-font{
+  font-size: 1.45rem !important;
+}
+.quick_links_font{
+    font-size: 1.4rem !important;
+}
+.searchContainer{
+    width: 50% !important;
+}
+.cutom-font-colour{
+    color: $cutom-font-colour;
+}
+.text-decoration-none{
+    text-decoration: none !important;
+}

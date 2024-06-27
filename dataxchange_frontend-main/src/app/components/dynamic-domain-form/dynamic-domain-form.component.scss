@@ -1,0 +1,115 @@
+@import '../../../styles/color.scss';
+
+mat-stepper {
+  position: relative;
+
+  ::ng-deep {
+    .mat-horizontal-stepper-header-container {
+      width: 60%;
+      margin: auto;
+      position: sticky;
+      top: 0;
+      padding-bottom: 3rem;
+      background-color: $cutom-white;
+      z-index: 9;
+    }
+
+    .mat-step-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 80px;
+      overflow: visible;
+
+      .mat-step-icon {
+        width: 3rem;
+        height: 3rem;
+        margin: 0;
+        background-color: #797979;
+
+        .mat-step-icon-content {
+          font-weight: 700;
+          font-size: 1.6rem;
+
+          .mat-icon {
+            font-size: 1.6rem;
+            width: 1.6rem;
+            height: 1.6rem;
+          }
+        }
+
+        &.mat-step-icon-selected {
+          background-color: $cutom-teal;
+        }
+      }
+
+      .mat-step-label {
+        position: relative;
+        top: 1rem;
+        height: 0;
+        overflow: visible;
+
+        .mat-step-text-label {
+          font-weight: 700;
+          font-size: 1.6rem;
+          color: #797979;
+          overflow: visible;
+        }
+
+        &.mat-step-label-selected {
+          .mat-step-text-label {
+            color: $cutom-teal;
+          }
+        }
+      }
+    }
+
+    .mat-stepper-horizontal-line {
+      border-width: 4px;
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    ::ng-deep {
+      .mat-horizontal-stepper-header-container {
+        padding: 0;
+        padding-bottom: 1rem;
+      }
+
+      .mat-step-header {
+        .mat-step-label {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+// Dataset Details
+.dynamic-form-1,.dynamic-form-2,.dynamic-form-4 {
+  display: block;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.dynamic-form-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+  }
+}

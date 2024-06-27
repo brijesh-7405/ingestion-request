@@ -1,0 +1,53 @@
+@import '../../../../../styles/color.scss';
+@import '../../../../../styles/element.styles.scss';
+
+.radio-container {
+  &.is-invalid {
+    outline: 1px solid $cutom-error-colour;
+  }
+}
+
+.mat-mdc-radio-group {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 0 4rem;
+
+  .mat-mdc-radio-button {
+    display: block;
+
+    ::ng-deep {
+        .mdc-radio {
+          margin-left: -10px;
+
+          .mdc-radio__native-control + .mdc-radio__background {
+            &::before {
+              background-color: #f36633;
+            }
+
+            .mdc-radio__outer-circle,
+            .mdc-radio__inner-circle {
+              border-color: #f36633;
+            }
+          }
+
+          &:hover {
+            .mdc-radio__native-control + .mdc-radio__background {
+              .mdc-radio__outer-circle {
+                border-color: #f36633;
+              }
+            }
+          }
+        }
+
+        .mdc-label {
+          font-size: 1.4rem;
+          color: $cutom-input-text-colour;
+        }
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    grid-template-columns: auto;
+    gap: 1rem 0;
+  }
+}

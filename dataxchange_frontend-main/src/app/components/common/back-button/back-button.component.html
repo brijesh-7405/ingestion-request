@@ -1,0 +1,31 @@
+<div class="back-container">
+  <div>
+    <!-- [routerLink]="[url]" -->
+    <button mat-icon-button class="back-button" (click)="goBack()">
+      <mat-icon fontIcon="arrow_back" class="back-icon"></mat-icon>
+    </button>
+  </div>
+
+  <div class="back-inner-container">
+    <div class="back-label">
+      <strong>{{label}}</strong>
+    </div>
+    <nav class="back-breadcrumbs">
+      <ul>
+        <li *ngFor="let item of breadcrumbItems; let last = last">
+          <ng-container *ngIf="item.url">
+            <a [routerLink]="item.url">
+              <strong>{{item.label}}</strong>
+            </a>
+          </ng-container>
+
+          <ng-container *ngIf="!item.url">
+            <span>{{item.label}}</span>
+          </ng-container>
+
+          <span *ngIf="!last" class="separator">/</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

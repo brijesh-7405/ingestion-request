@@ -1,0 +1,55 @@
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.label-container {
+  margin-bottom: .25rem;
+
+  .label {
+    display: inline;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+  }
+}
+
+.info-button {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  padding: 0;
+  margin-left: 6px;
+  vertical-align: top;
+  color: #979797;
+
+  mat-icon {
+    width: inherit;
+    height: inherit;
+    font-size: inherit;
+    pointer-events: none;
+  }
+}
+
+.form-control {
+  height: 55px;
+  border: 1px solid #979797;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  border-radius: 0;
+  background-image: none;
+  color: $cutom-input-text-colour;
+
+  &.is-invalid {
+    border-color: $cutom-error-colour;
+  }
+}
+
+::ng-deep {
+  .mat-mdc-select-trigger {
+    height: 55px !important;
+  }
+  .mdc-checkbox .mdc-checkbox__background{
+    background-color: $cutom-teal !important;
+    border-color: $cutom-teal !important;
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../../../styles/color.scss';
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+
+    .dropdown-toggler {
+        font-size: 1.2em;
+        font-weight: 600;
+        background-color: transparent;
+    }
+
+    .dropdown-menu {
+        font-size: 1.2em;
+        font-weight: 600;
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: $cutom-border-shadow-light;
+        z-index: 1000;
+    }
+}

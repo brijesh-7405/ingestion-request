@@ -1,0 +1,90 @@
+@import '../../../../styles/color.scss';
+
+.buttons-container {
+  display: flex;
+  gap: 12px;
+
+  button {
+    flex: none;
+    font-weight: 500;
+    height: 35px;
+    letter-spacing: 0;
+    white-space: nowrap;
+
+    &[color="primary"] {
+      background-color: $cutom-teal;
+
+      &:disabled {
+        color: $cutom-white;
+        background-color: #979797;
+      }
+    }
+
+    &[color="primary"][stroked="true"] {
+      border: 2px solid $cutom-teal;
+      background-color: transparent;
+      color: $cutom-teal;
+
+      &:disabled {
+        // color: $cutom-white;
+        // background-color: #979797;
+        opacity: 0.6;
+      }
+    }
+
+    &[color="secondary"] {
+      border-color: $cutom-teal;
+    }
+
+    &.preview-btn,
+    &.next-btn {
+      mat-icon {
+        background-color: $cutom-white;
+        border-radius: 50%;
+        color: $cutom-teal;
+      }
+
+      &:disabled {
+        mat-icon {
+          color: #979797;
+        }
+      }
+    }
+
+    &.next-btn {
+      .mdc-button__label {
+        order: 1;
+      }
+
+      mat-icon {
+        order: 2;
+        margin-left: var(--mat-filled-button-icon-spacing, 8px);
+        margin-right: var(--mat-filled-button-icon-offset, -4px);
+      }
+    }
+
+    mat-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  .mat-divider {
+    border-width: 2px;
+    border-color: #a6a6a6;
+  }
+
+  @media screen and (max-width: 900px) {
+    button {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-shrink: 1;
+
+      mat-icon {
+        display: none;
+      }
+    }
+  }
+}

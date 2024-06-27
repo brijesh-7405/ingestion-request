@@ -1,0 +1,26 @@
+<div class="form-group">
+  <div class="label-container">
+    <label class="label" for="{{ id }}">
+      {{ label }}
+      <span *ngIf="isRequired">*</span>
+    </label>
+    <button
+      *ngIf="tooltip"
+      mat-icon-button
+      type="button"
+      class="info-button"
+      [matTooltip]="tooltip"
+      matTooltipPosition="above"
+    >
+      <mat-icon fontIcon="info"></mat-icon>
+    </button>
+  </div>
+  <textarea
+    id="{{ id }}"
+    autocomplete="off"
+    class="form-control"
+    [class.is-invalid]="formControl.invalid"
+    placeholder="{{ placeholder }}"
+    [formControl]="formControl"
+  ></textarea>
+</div>

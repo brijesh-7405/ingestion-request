@@ -1,0 +1,12 @@
+<div class="dropdown-container w-100 h-100 " [ngClass]="{'dropdown-open': isOpen}">
+    <button class="btn btn-light dropdown-toggler w-100 h-100 d-flex align-item-center justify-content-between"
+        (click)="toggleDropdown($event)">
+        {{selectedType}}
+        <mat-icon fontIcon="expand_more"></mat-icon>
+    </button>
+    <div class="dropdown-menu p-4 w-100" *ngIf="isOpen">
+        <ng-container *ngFor="let item of dropdownList">
+            <a class="dropdown-item p-3" (click)="selectItem(item)">{{item}}</a>
+        </ng-container>
+    </div>
+</div>

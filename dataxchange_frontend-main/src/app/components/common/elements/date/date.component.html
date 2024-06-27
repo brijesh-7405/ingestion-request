@@ -1,0 +1,34 @@
+<div class="form-group">
+  <div class="label-container">
+    <label class="label" for="{{ id }}">
+      {{ label }}
+      <span *ngIf="isRequired">*</span>
+    </label>
+    <button
+      *ngIf="tooltip"
+      mat-icon-button
+      type="button"
+      class="info-button"
+      [matTooltip]="tooltip"
+      matTooltipPosition="above"
+    >
+      <mat-icon fontIcon="info"></mat-icon>
+    </button>
+  </div>
+
+  <div class="input-container" >
+    <input
+      readonly
+      class="form-control" [class.is-invalid]="formControl.invalid"
+      [matDatepicker]="picker"
+      id="{{ id }}"
+      placeholder="{{placeholder}}"
+      [formControl]="formControl"
+      (click)="picker.open()"
+    >
+    <mat-datepicker-toggle [for]="picker">
+      <mat-icon matDatepickerToggleIcon fontIcon="date_range"></mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </div>
+</div>

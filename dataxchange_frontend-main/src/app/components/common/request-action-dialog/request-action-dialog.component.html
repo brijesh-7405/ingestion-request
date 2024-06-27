@@ -1,0 +1,61 @@
+<div class="request-action-dialog m-5">
+    <h2 class="header fw-bold d-flex justify-content-between align-item-center" mat-dialog-title>{{dialogInfo.title}}
+        <button class="btn" (click)="onCloseDialog()">
+            <mat-icon fontIcon="cancel"></mat-icon>
+        </button>
+    </h2>
+    <div class="dialog-overlay" mat-dialog-content>
+        <form [formGroup]="form" (ngSubmit)="onActionSubmit()">
+            <div class="dialog-container py-1">
+                <div class="dialog-content font-weight-normal">
+                    <ng-container *ngIf="hasControl('reasonForRejection')">
+                        <div class="form-group">
+                            <div class="label-container">
+                                <label class="label">Reason for rejection
+                                    <span *ngIf="isRequired('reasonForRejection')">*</span></label>
+                            </div>
+                            <mat-select class="form-control dropdown" panelClass="dropdown-panel"
+                                formControlName="reasonForRejection">
+                                <mat-option *ngFor="let option of options" [value]="option">
+                                    {{ option }}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="hasControl('url')">
+                        <div class="form-group">
+                            <div class="label-container">
+                                <label class="label" for="url">URL <span *ngIf="isRequired('url')">*</span> </label>
+                            </div>
+                            <input id="url" autocomplete="off" class="form-control" placeholder="xyz.com"
+                                [class.is-invalid]="submitted && f['url'].errors" formControlName="url" />
+                        </div>
+                    </ng-container>
+                    <div class="form-group">
+                        <div class="label-container">
+                            <label class="label" for="comment"> Comment <span *ngIf="isRequired('comment')">*</span>
+                            </label>
+                        </div>
+                        <textarea id="comment" style="height: 100px;" autocomplete="off" class="form-control"
+                            [class.is-invalid]="submitted && f['comment'].errors" placeholder="Enter"
+                            formControlName="comment"></textarea>
+                    </div>
+                    <mat-divider [vertical]="false"></mat-divider>
+
+                    <mat-checkbox formControlName="notify" class="mb-5">Notify the user through email</mat-checkbox>
+
+
+                </div>
+                <div class="dialog-actions">
+                    <button mat-flat-button color="primary" class="preview-btn" type="submit">
+                        {{dialogInfo.type == 'submit'? 'SUBMIT':'REJECT'}}
+                    </button>
+                    <button mat-flat-button color="primary" stroked="true" class="preview-btn ms-4"
+                        (click)="onCloseDialog()">
+                        CANCEL
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

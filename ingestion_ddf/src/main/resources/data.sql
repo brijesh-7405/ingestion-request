@@ -1,0 +1,131 @@
+-- data.sql
+
+-- Seed data for status table
+INSERT INTO public.status (status_id, status_code, status_name) VALUES
+                                                                    (1, 'status04', 'Approved'),
+                                                                    (2, 'status03', 'Ingestion In-Progress'),
+                                                                    (3, 'status02', 'Triage Pending Approval'),
+                                                                    (4, 'status01', 'Draft'),
+                                                                    (5, 'status05', 'Ingestion Completed'),
+                                                                    (6, 'status06', 'Ingestion Failure'),
+                                                                    (7, 'status07', 'Rejected');
+
+-- Seed data for application_reference_table
+INSERT INTO public.application_reference_table (
+    reference_id, reference_data, reference_data_type, created_by,
+    created_date, modified_by, modified_date, reference_order, reference_group_type
+)
+VALUES
+    (1, 'Other', 'usage_restrictions', 'system', '2023-12-14 09:12:00', NULL, NULL, 5, NULL),
+    (2, 'Confidential', 'information_classification_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (3, 'World Wide Business Development (WWBD)', 'contract_partner', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (4, 'Proprietary', 'information_classification_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (5, 'Alliance', 'contract_partner', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (6, 'Approved for Public Release', 'information_classification_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (7, 'Critical and Sensitive Information (CSI)', 'information_classification_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (8, 'Consumption', 'domain_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (9, 'Source', 'domain_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (10, 'Fit for Purpose', 'domain_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (11, 'Type 1 - Internal', 'data_source_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (12, 'Type 2 – Contract (pre-existing licensed data)', 'data_source_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (13, 'Type 3 – Contract (new data)', 'data_source_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (14, 'Type 4 - Public', 'data_source_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (15, 'Restricted PI', 'pii_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (16, 'Basic PI', 'pii_type', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (17, 'As per Contract', 'retention_rules', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (18, 'Not Applicable', 'retention_rules', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (19, 'Not applicable', 'user_restrictions', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (20, 'Users need to sign an agreement to access some or all of the data', 'user_restrictions', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (21, 'Other', 'user_restrictions', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (22, 'Data placed within the XYZ environment', 'current_data_location_ef', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (23, 'Data placed outside the XYZ environment', 'current_data_location_ef', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (24, 'Exploration', 'dataset_required_for_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (25, 'Industrialization', 'dataset_required_for_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (26, 'Yes', 'meteor_space_domino_usage_flag', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (27, 'No', 'meteor_space_domino_usage_flag', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (28, 'Yes', 'ihd_flag', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (29, 'No', 'ihd_flag', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (30, 'Yes', 'dta_contract_complete_flag', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (31, 'No', 'dta_contract_complete_flag', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (32, 'Third party will push data into XYZ', 'dataset_type_ingestionR_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (33, 'XYZ will push data', 'dataset_type_ingestionR_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (34, 'SFTP', 'gsk_access_source_location_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (35, 'HTTP', 'gsk_access_source_location_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (36, '50 GB - 100 GB', 'estimated_data_volume_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (37, '100 GB - 500 GB', 'estimated_data_volume_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (38, '500 GB - 1000 GB', 'estimated_data_volume_ref', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (39, 'Monthly', 'data_refresh_frequency', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (40, 'Quarterly', 'data_refresh_frequency', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (41, 'Yearly', 'data_refresh_frequency', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (42, 'Clinical', 'data_category_refs', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (43, 'Genomics', 'data_category_refs', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (44, 'Integration', 'data_category_refs', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (45, 'Mechanical', 'data_category_refs', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (46, 'ST123', 'study_ids', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (47, 'ST133', 'study_ids', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (48, 'ST421', 'study_ids', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (49, 'ST333', 'study_ids', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (50, 'Cardiology', 'therapy_areas', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (51, 'Neurology', 'therapy_areas', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (52, 'Neuroscience', 'therapy_areas', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (53, 'Oncology', 'therapy_areas', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (54, 'PCR', 'technique_and_assays', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (55, 'ELISA', 'technique_and_assays', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (56, 'THB', 'technique_and_assays', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (57, 'HCT', 'technique_and_assays', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (58, 'Hypertension', 'indications', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (59, 'Alzheimer Disease', 'indications', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (60, 'Diabetes', 'indications', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (61, 'Epilepsy', 'indications', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (62, 'Data already available', 'rejection_reason', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (63, 'Data incomplete', 'rejection_reason', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (64, 'Technical issue', 'rejection_reason', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (65, 'Data not relevant', 'rejection_reason', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (66, 'John Doe', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (67, 'Jane Smith', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (68, 'Alice Johnson', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (69, 'Bob Brown', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (70, 'Emily Wilson', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 5, NULL),
+    (71, 'Ivy Anderson', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 6, NULL),
+    (72, 'Jack Thomas', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 7, NULL),
+    (73, 'Grace Lee', 'requester_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 8, NULL),
+    (74, 'MRDM', 'dataset_sme_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (75, 'Explanatory SD', 'dataset_sme_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (76, 'Space External SD (FSO)', 'dataset_sme_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (77, 'Data Insights Team', 'dataset_sme_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (78, 'Research Analytics Group', 'dataset_sme_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 5, NULL),
+    (79, 'Global Data Management', 'dataset_sme_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 6, NULL),
+    (80, 'John Doe', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (81, 'Jane Smith', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (82, 'Alice Johnson', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (83, 'Bob Brown', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (84, 'Emily Wilson', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 5, NULL),
+    (85, 'Ivy Anderson', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 6, NULL),
+    (86, 'Jack Thomas', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 7, NULL),
+    (87, 'Grace Lee', 'dataset_owner_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 8, NULL),
+    (88, 'John Doe', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 1, NULL),
+    (89, 'Jane Smith', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 2, NULL),
+    (90, 'Alice Johnson', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 3, NULL),
+    (91, 'Bob Brown', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 4, NULL),
+    (92, 'Emily Wilson', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 5, NULL),
+    (93, 'Ivy Anderson', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 6, NULL),
+    (94, 'Jack Thomas', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 7, NULL),
+    (95, 'Grace Lee', 'dataset_steward_name', 'system', '2023-12-14 09:12:00', NULL, NULL, 8, NULL);
+
+
+-- Seed data for email_template
+INSERT INTO public.email_template (template_id, body, subject, template_code)
+VALUES (
+           1,
+           'Dear User,
+
+       We would like to inform you that the status of your ingestion request has been updated.
+       The request is changed from {oldStatus} to {newStatus}.
+
+       For more details, please check your ingestion request status in to your account.
+
+       Best regards,
+       The TopCoders Team',
+           'Update: Ingestion Request Status',
+           'INGESTION_REQUEST_STATUS_UPDATE'
+       );

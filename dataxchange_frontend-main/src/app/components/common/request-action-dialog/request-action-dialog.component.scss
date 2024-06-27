@@ -1,0 +1,80 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/element.styles.scss';
+
+.request-action-dialog {
+
+    ::ng-deep{
+        .mat-mdc-select-value {
+            font-size: 1.6rem;
+          }
+    }
+    
+
+    .dialog-overlay {
+        .dialog-container {
+            min-width: 500px;
+        }
+
+        button {
+
+            &[color="primary"] {
+                background-color: $cutom-teal;
+
+                &:disabled {
+                    color: $cutom-white;
+                    background-color: #979797;
+                }
+            }
+
+            &[color="primary"][stroked="true"] {
+                border: 2px solid $cutom-teal;
+                background-color: var(--bs-body-bg);
+                color: $cutom-teal;
+
+                &:disabled {
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+}
+
+.dropdown {
+    display: block;
+    padding: 0px;
+  
+    ::ng-deep {
+      .mat-mdc-select-trigger {
+        height: 100%;
+  
+        .mat-mdc-select-value {
+          padding: 0 .75rem;
+          font-size: 1.6rem;
+        }
+  
+        .mat-mdc-select-arrow-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+  
+          .mat-mdc-select-arrow {
+            width: auto;
+            height: auto;
+  
+            &::before {
+              content: '\e313';
+              font-family: 'Material Icons';
+              font-size: 24px;
+              display: block;
+            }
+  
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  

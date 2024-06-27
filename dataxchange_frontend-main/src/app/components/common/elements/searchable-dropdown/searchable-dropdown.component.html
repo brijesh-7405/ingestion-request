@@ -1,0 +1,62 @@
+<div class="form-group">
+  <div class="label-container">
+    <label class="label">
+      {{ label }}
+      <span *ngIf="isRequired">*</span>
+    </label>
+    <button
+      *ngIf="tooltip"
+      mat-icon-button
+      type="button"
+      class="info-button"
+      [matTooltip]="tooltip"
+      matTooltipPosition="above"
+    >
+      <mat-icon fontIcon="info"></mat-icon>
+    </button>
+  </div>
+
+  <mat-select
+    class="form-control"
+    [class.is-invalid]="formControl.invalid"
+    panelClass="seachable-dropdown-panel"
+    [placeholder]="placeholder"
+    [formControl]="formControl"
+    (closed)="clearSearchText()"
+    [multiple]="multiple"
+  >
+    <mat-optgroup class="seachable-dropdown-search-box">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Search"
+          [(ngModel)]="searchText"
+          (keydown)="util_stopSelectionOnFiltering($event)"
+        />
+        <button *ngIf="searchText" matSuffix mat-icon-button (click)="clearSearchText()">
+          <mat-icon fontIcon="close"></mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-optgroup>
+    <mat-optgroup
+      *ngIf="filteredOptions.length === 0"
+      class="mat-select-search-box"
+    >
+      <div>No results found!</div>
+    </mat-optgroup>
+    <mat-option
+      *ngFor="let option of filteredOptions"
+      [value]="option.value"
+      [style.display]="searchText ? '' : 'none'"
+    >
+      {{ option.name }}
+    </mat-option>
+    <mat-option
+      *ngFor="let option of options"
+      [value]="option.value"
+      [style.display]="searchText ? 'none' : ''"
+    >
+      {{ option.name }}
+    </mat-option>
+  </mat-select>
+</div>

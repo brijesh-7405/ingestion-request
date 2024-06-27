@@ -1,0 +1,52 @@
+@import '../../../../styles/color.scss';
+
+.back-container {
+  display: flex;
+
+  .back-inner-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.back-button {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+  padding: 0;
+  margin-right: 4px;
+  background-color: #006B77;
+
+  .back-icon {
+    width: inherit;
+    height: inherit;
+    font-size: inherit;
+    color: $cutom-white;
+  }
+}
+
+.back-label {
+}
+
+.back-breadcrumbs {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+
+
+      a {
+        text-decoration: none;
+        color: $cutom-primary-colour;
+      }
+
+      .separator {
+        margin: 0 .5em;
+      }
+    }
+  }
+}

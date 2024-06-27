@@ -1,0 +1,27 @@
+<div class="request-dialog">
+    <div class="header" mat-dialog-title></div>
+    <div class="dialog-overlay p-4" mat-dialog-content>
+        <div class="dialog-container py-5 px-4">
+            <div class="dialog-header text-center mb-5">
+                <div class="icon-circle">
+                    <mat-icon fontIcon="event_note" class="d-flex align-items-center justify-content-center"></mat-icon>
+                </div>
+            </div>
+            <div class="dialog-content font-weight-normal">
+                <h2>Hello John,</h2>
+                <p><b>
+                        Your data ingestion request for
+                        <a class="link">“{{data.requestFor}}”</a>
+                        was successfully submitted. The request ID is
+                        <a class="link">{{data.requestId}}</a>.</b>
+                </p>
+                <div class="dialog-actions text-center m-5">
+                    <button mat-flat-button color="primary" class="preview-btn" (click)="viewRequest()">
+                        VIEW REQUEST
+                    </button>
+                </div>
+            </div>
+            <p class="footer-text">Thank you,<br />Marketplace team</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="buttons-container">
+  <ng-container *ngIf="componentName == 'DynamicDomainFormComponent'">
+    <button mat-flat-button color="primary" class="preview-btn" [disabled]="!hasPrevious()" (click)="previous()">
+      <mat-icon fontIcon="arrow_back"></mat-icon>
+      PREVIOUS
+    </button>
+
+    <button *ngIf="hasNext()" mat-flat-button color="primary" class="next-btn" (click)="next()">
+      NEXT
+      <mat-icon fontIcon="arrow_forward"></mat-icon>
+    </button>
+
+    <button *ngIf="isLastStep() && isNewForm()" mat-flat-button color="primary" class="submit-btn" (click)="submit()">
+      SUBMIT
+    </button>
+
+    <button *ngIf="isLastStep() && !isNewForm() && isDraft()" mat-flat-button color="primary" class="submit-btn" (click)="submitOnEditPage()">
+      SUBMIT
+    </button>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <ng-container *ngIf="isNewForm()">
+      <button mat-flat-button color="primary" (click)="save()">SAVE</button>
+      <button mat-flat-button color="primary" (click)="saveAndClose()">
+        SAVE & CLOSE
+      </button>
+    </ng-container>
+    <ng-container *ngIf="!isNewForm()">
+      <button mat-flat-button color="primary" (click)="update()">UPDATE</button>
+    </ng-container>
+    <button mat-stroked-button color="secondary" (click)="cancel()">
+      CANCEL
+    </button>
+  </ng-container>
+  <ng-container *ngIf="componentName == 'ViewRequestComponent'">
+    <ng-container *ngIf="!isReviewForm()">
+      <button mat-flat-button color="primary" (click)="edit()" *ngIf="allowEdit()">
+        EDIT
+      </button>
+      <mat-divider [vertical]="true" *ngIf="allowEdit()"></mat-divider>
+      <button mat-flat-button color="primary" (click)="sendToDataXchange()">
+        SEND TO DATA XCHANGE
+      </button>
+      <button mat-flat-button stroked="true" color="primary" (click)="reject()">
+        REJECT
+      </button>
+      <button mat-flat-button stroked="true" color="primary" (click)="moveToBacklog()">
+        MOVE TO BACKLOG
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="isReviewForm()">
+      <button mat-flat-button stroked="true" color="primary" (click)="cancel()">
+        CANCEL
+      </button>
+    </ng-container>
+  </ng-container>
+</div>

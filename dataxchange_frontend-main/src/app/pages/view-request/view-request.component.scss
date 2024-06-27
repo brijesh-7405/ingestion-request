@@ -1,0 +1,82 @@
+@import '../../../styles/color.scss';
+
+.view-request-container {
+
+    .link {
+        color: $cutom-teal;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .note-section {
+        width: 20%;
+
+        .notes-actions {
+            position: absolute;
+            right: -10px;
+            top: 1px;
+            display: flex;
+            flex-direction: column;
+
+            button {
+                width: 30px;
+                height: 30px;
+                opacity: 0.5;
+
+                &:hover {
+                    opacity: 1;
+                    transition: all 0.5s;
+                }
+            }
+        }
+
+        .textarea-custom {
+            font-size: inherit;
+            border-radius: 5px;
+            padding: 10px;
+            min-height: 100px;
+        }
+
+        mat-icon {
+            width: 24px;
+            height: 21px;
+            font-size: 20px;
+        }
+    }
+
+
+    button {
+        &[color="primary"] {
+            background-color: $cutom-teal;
+
+            &:disabled {
+                color: $cutom-white;
+                background-color: #979797;
+            }
+        }
+
+        &[color="primary"][stroked="true"] {
+            border: 2px solid $cutom-teal;
+            background-color: var(--bs-body-bg);
+            color: $cutom-teal;
+
+            &:disabled {
+                opacity: 0.6;
+            }
+        }
+
+        &[color="warn"][stroked="true"] {
+            border: 2px solid var(--bs-danger);
+            background-color: var(--bs-body-bg);
+            color: var(--bs-danger);
+
+            &:disabled {
+                opacity: 0.6;
+            }
+        }
+    }
+}

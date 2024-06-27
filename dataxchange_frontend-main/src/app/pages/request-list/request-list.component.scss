@@ -1,0 +1,113 @@
+@import '../../../styles/color.scss';
+
+.view-request-container {
+
+    ::ng-deep {
+        .mat-mdc-tab-header {
+            .mat-mdc-tab-label-container {
+                background-color: var(--bs-light);
+                border-bottom: 1px solid $cutom-border-colour;
+
+                .mat-mdc-tab-list {
+                    margin: auto 20px;
+                }
+
+                .mdc-tab-indicator--active {
+                    background-color: #006c7817;
+                }
+            }
+
+            .mat-mdc-tab {
+                flex-grow: initial !important;
+
+
+                &.mdc-tab--active .mdc-tab__text-label {
+                    color: $cutom-teal !important;
+                    font-weight: 500;
+                }
+
+                .mdc-tab__text-label {
+                    margin: 10px 5px;
+                    color: $cutom-teal !important;
+                    font-weight: 400;
+                }
+
+                .mdc-tab-indicator__content--underline {
+                    border-color: $cutom-teal;
+                    border-top-width: 7px;
+                }
+            }
+        }
+
+        .mdc-text-field--filled {
+            background-color: transparent;
+        }
+    }
+
+    .request-container {
+        box-shadow: $cutom-border-shadow-light;
+        margin-top: 60px;
+
+        .status-header {
+            position: absolute;
+            top: -29px;
+            left: 1px;
+            width: 250px;
+            height: 28px;
+            background-color: #6658a6;
+            color: white;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            padding: 4px 8px;
+        }
+
+        .col-custom {
+            width: 20%;
+        }
+
+        .link {
+            color: $cutom-teal;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        button {
+            &[color="primary"] {
+                background-color: $cutom-teal;
+            }
+        }
+    }
+}
+
+.custom-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .custom-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .clickable-icon {
+    cursor: pointer;
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
+  }
+  
+  .clickable-sort {
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 16px;
+  }
+  

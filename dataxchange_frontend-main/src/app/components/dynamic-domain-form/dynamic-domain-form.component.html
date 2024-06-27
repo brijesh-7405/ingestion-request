@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-stepper linear (selectedIndexChange)="updateStepHeaderColorAndText()" #stepper>
+    <ng-container *ngFor="let item of createDomainData; let i = index">
+      <mat-step [stepControl]="forms[i]">
+        <ng-template matStepLabel>{{ item.header }}</ng-template>
+        <app-dynamic-form
+          [controlsData]="item.data"
+          [(form)]="forms[i]"
+          class="dynamic-form-{{ i + 1 }}"
+        ></app-dynamic-form>
+      </mat-step>
+    </ng-container>
+  </mat-stepper>
+</div>

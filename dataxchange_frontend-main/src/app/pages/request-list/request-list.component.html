@@ -1,0 +1,139 @@
+<div class="view-request-container">
+  <mat-tab-group
+    class="custom-tab-group"
+    (selectedTabChange)="onTabChange($event)"
+  >
+    <mat-tab [label]="'Awaiting my approval (' + myPendings + ')'"> </mat-tab>
+    <mat-tab label="My Submissions"> </mat-tab>
+  </mat-tab-group>
+  <div class="tab-content m-5 px-4 overflow-auto">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="d-flex align-items-center">
+        <app-select-dropdown
+          class="mr-3"
+          [dropdownList]="dropdownList"
+          [selectedType]="selectedType"
+          (selectedItem)="onSelectType($event)"
+        ></app-select-dropdown>
+        <ng-container
+          *ngIf="
+            currentTab === 'Awaiting my Approval';
+            else statusOptionsTemplate
+          "
+        >
+          <mat-radio-button value="All" aria-checked="true" checked="checked"
+            >All</mat-radio-button
+          >
+        </ng-container>
+        <ng-template #statusOptionsTemplate>
+          <mat-radio-group
+            [(ngModel)]="selectedStatus"
+            (change)="onStatusChange($event)"
+          >
+            <ng-container *ngFor="let option of statusOptions">
+              <mat-radio-button [value]="option">
+                {{ option }}
+                <span *ngIf="option !== 'All'"> ({{ getCount(option) }})</span>
+              </mat-radio-button>
+            </ng-container>
+          </mat-radio-group>
+        </ng-template>
+      </div>
+      <button class="custom-button mat-stroked-button">
+        <mat-icon class="clickable-icon" (click)="orderDirection('asc')"
+          >arrow_upward</mat-icon
+        >
+        <mat-icon class="clickable-icon" (click)="orderDirection('desc')"
+          >arrow_downward</mat-icon
+        >
+        <span [matMenuTriggerFor]="sortMenu" class="clickable-sort">Sort</span>
+      </button>
+      <mat-menu #sortMenu="matMenu">
+        <button
+          mat-menu-item
+          *ngFor="let sortOption of sortOptions"
+          (click)="onSortOptionSelect(sortOption)"
+        >
+          {{ sortOption }}
+        </button>
+      </mat-menu>
+    </div>
+    <ng-container *ngFor="let request of allRequest.items">
+      <div class="request-container row border rounded position-relative">
+        <div class="status-header">Fast-Track Request</div>
+        <div class="request-details col-12 col-sm-12 col-lg-9 col-xl-10 p-5">
+          <div class="row g-5">
+            <div class="col-custom">
+              <div class="text-secondary small">Request ID</div>
+              <div class="value link">{{ request.ingestionRequestId }}</div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Required For</div>
+              <div class="value">{{ request.datasetRequiredForRef }}</div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Requested by</div>
+              <div class="value">
+                {{ request.requesterName }}({{ request.requesterMudid }})
+              </div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Analysis Initiated Date</div>
+              <div class="value">
+                {{ request.analysisInitDt | date : "d MMM y" }}
+              </div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Analysis Completed Date</div>
+              <div class="value">
+                {{ request.analysisEndDt | date : "d MMM y" }}
+              </div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Last Updated Date</div>
+              <div class="value">
+                {{ request.modifiedDate | date : "d MMM y" }}
+              </div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Department</div>
+              <div class="value">{{ request.department }}</div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Dataset SME</div>
+              <div class="value">
+                {{ request.datasetSmeName }}({{ request.datasetSmeMudid }})
+              </div>
+            </div>
+            <div class="col-custom">
+              <div class="text-secondary small">Requester Email</div>
+              <div class="value">{{ request.requesterEmail }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="actions col-12 col-sm-12 col-lg-3 col-xl-2 bg-light">
+          <div class="p-5 row h-100">
+            <div class="col-12">
+              <div class="text-secondary small">Status</div>
+              <div class="value" class="text-danger mb-5">
+                {{ request.activeRequestStatus.status.statusName }}
+              </div>
+            </div>
+            <button
+              mat-flat-button
+              color="primary"
+              class="preview-btn col-12 align-self-end"
+              [routerLink]="[
+                '/fast-track-request',
+                request.ingestionRequestId,
+                'view'
+              ]"
+            >
+              View Request
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

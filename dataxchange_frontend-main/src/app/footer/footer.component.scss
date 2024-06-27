@@ -1,0 +1,44 @@
+@import '../../styles/color.scss';
+
+:host {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footerWrapper {
+    -ms-flex-negative: 0;
+    flex-shrink      : 0;
+    text-align       : center;
+    height: 28px;
+    margin: auto;
+    display: inline-flex;
+    width: 100%;
+
+    .copyright {
+        line-height: 1;
+        color      : $WhiteColorFont;
+        flex-shrink: 0;
+        width      : 100%;
+        text-align : center;
+        line-height: 1;
+        margin: auto;
+       /*  font-size  : 0.6rem; */
+    }
+
+    .iconWarning {
+        color    : $YellowColor;
+        font-size: 1.25em;
+        display: inline;
+    }
+
+    .disclaimer {
+        color      : $WhiteColorFont;
+        margin-top : 1rem;
+        flex-shrink: 0;
+        width      : 100%;
+        text-align : center;
+        /* font-size  : 0.6rem; */
+    }
+}

@@ -1,0 +1,15 @@
+<div class="page-header">
+  <div class="header-start">
+    <app-back-button
+      [url]="backUrl"
+      [label]="backLabel"
+      [breadcrumbItems]="breadcrumbs"
+    ></app-back-button>
+  </div>
+
+  <div class="header-end">
+    <ng-template [cdkPortalOutlet]="actionsPortal"></ng-template>
+  </div>
+</div>
+
+<div *ngIf="actionsPortal" class="actions-overlay"></div>
